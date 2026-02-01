@@ -26,7 +26,7 @@ router.get("/", async (req, res) => {
 
                 }
             })
-            return res.status(200).json({ success: false, message: "Retrieved map nodes", data: responseData })
+            return res.status(200).json({ success: true, message: "Retrieved map nodes", data: responseData })
         }
 
     } catch (error) {

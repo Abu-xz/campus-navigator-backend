@@ -8,8 +8,16 @@ const router = express.Router();
 * List Nodes api route handler
 */
 router.get("/", async (req, res) => {
+    const { buildingId, floor = 0 } = req.query
+    console.log("buildingId: ", buildingId)
+
+    const query = buildingId !== undefined ? {
+        buildingId: buildingId
+    } : { buildingId: "" }
+
     try {
-        const nodes = await MapNodeModel.find();
+        const nodes = await MapNodeModel.find(query)
+
         if (nodes) {
             const responseData = nodes.map(n => {
                 return {
@@ -26,7 +34,9 @@ router.get("/", async (req, res) => {
 
                 }
             })
-            return res.status(200).json({ success: false, message: "Retrieved map nodes", data: responseData })
+            return res.status(200).json({ success: true, message: "Retrieved map nodes", data: responseData })
+        } else {
+            return res.status(200).json({ success: true, message: "cannot find nodes" })
         }
 
     } catch (error) {

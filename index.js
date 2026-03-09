@@ -11,13 +11,8 @@ configDotenv();
 
 const app = express();
 
-const allowedOrigins = [
-    "http://localhost:8080",
-    "https://college-navigator-ten.vercel.app/"
-];
-
 app.use(cors({
-    origin: allowedOrigins,
+    origin: process.env.FRONTEND_URL
 }))
 app.use(express.json());
 

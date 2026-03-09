@@ -5,11 +5,12 @@
     "express": "^5.2.1",
     "mongoose": "^9.1.5"
   },
-  "name": "campus-navigtor-backend",
+  "name": "campus-navigator-backend",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "start": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",

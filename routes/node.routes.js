@@ -12,8 +12,8 @@ router.get("/", async (req, res) => {
     console.log("buildingId: ", buildingId)
 
     const query = buildingId !== undefined ? {
-        buildingId: buildingId, floor
-    } : { buildingId: "", floor }
+        buildingId: buildingId
+    } : { buildingId: "" }
 
     try {
         const nodes = await MapNodeModel.find(query)
